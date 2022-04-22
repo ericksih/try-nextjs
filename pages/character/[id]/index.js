@@ -2,6 +2,9 @@
 import Link from 'next/link';
 import characterStyles from '../../../styles/Character.module.css';
 import Head from 'next/head';
+import Image from 'next/image';
+
+import { grpahCMSImageLoader } from '../../../utils';
 
 const character = ({ character }) => {
   // console.log(character);
@@ -17,17 +20,19 @@ const character = ({ character }) => {
           </h2>
 
           <hr />
-          <img
+          <Image
             src={character.imageUrl}
             alt={character.name}
-            width={400}
-            height={300}
+            width={200}
+            height={200}
+            unoptimized
+            loader={grpahCMSImageLoader}
           />
           <hr />
           <p> Family : {character.family}</p>
         </a>
 
-        <Link href='/'>Back to Home</Link>
+        <Link href='/'> Back to Home</Link>
       </>
     </>
   );
